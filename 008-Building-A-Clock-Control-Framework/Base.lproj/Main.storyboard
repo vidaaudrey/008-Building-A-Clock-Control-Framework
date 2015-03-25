@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="96p-s8-wjV">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Clock View Controller-->
+        <scene sceneID="YhD-su-7We">
+            <objects>
+                <viewController id="96p-s8-wjV" customClass="ClockViewController" customModule="_08_Building_A_Clock_Control_Framework" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q5E-X5-T0z"/>
+                        <viewControllerLayoutGuide type="bottom" id="WKR-C2-hAk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Aa4-c8-Mzr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dUh-LG-z3M">
+                                <rect key="frame" x="0.0" y="438" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="448923116.31029898">
+                                    <!--2015-03-24 20:51:56 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ek9-qs-KS7">
+                                <rect key="frame" x="325" y="28" width="69" height="30"/>
+                                <state key="normal" title="Speed Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setSpeedUpTime:" destination="96p-s8-wjV" eventType="touchUpInside" id="97n-dv-00W"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wa-7w-Vhm" customClass="ClockBGView" customModule="_08_Building_A_Clock_Control_Framework" customModuleProvider="target">
+                                <rect key="frame" x="183" y="103" width="234" height="234"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMg-eV-uAQ" customClass="ClockHandView" customModule="_08_Building_A_Clock_Control_Framework" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="234" height="234"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="234" id="8rW-A6-Oxd"/>
+                                            <constraint firstAttribute="height" constant="234" id="gZn-0V-rxd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="1rb-DZ-Okg"/>
+                                    <constraint firstAttribute="width" secondItem="uMg-eV-uAQ" secondAttribute="width" id="5k3-38-k30"/>
+                                    <constraint firstAttribute="height" secondItem="uMg-eV-uAQ" secondAttribute="height" id="Faf-Dp-4Kt"/>
+                                    <constraint firstAttribute="centerY" secondItem="uMg-eV-uAQ" secondAttribute="centerY" id="Kpq-ME-2k5"/>
+                                    <constraint firstAttribute="height" constant="234" id="QA9-sj-lYp"/>
+                                    <constraint firstAttribute="centerX" secondItem="uMg-eV-uAQ" secondAttribute="centerX" id="SGy-Lt-O2A"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5k3-38-k30"/>
+                                        <exclude reference="Faf-Dp-4Kt"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbG-Gy-Nbm">
+                                <rect key="frame" x="196" y="28" width="89" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="fxv-E3-TBB"/>
+                                </constraints>
+                                <state key="normal" title="System Time">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fxv-E3-TBB"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="setSystemTime:" destination="96p-s8-wjV" eventType="touchUpInside" id="Wgh-u3-9P6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ek9-qs-KS7" firstAttribute="baseline" secondItem="hbG-Gy-Nbm" secondAttribute="baseline" id="0bw-Gg-RQF"/>
+                            <constraint firstAttribute="centerX" secondItem="hbG-Gy-Nbm" secondAttribute="centerX" constant="60" id="0wW-1n-6Vc"/>
+                            <constraint firstAttribute="trailing" secondItem="dUh-LG-z3M" secondAttribute="trailing" id="3NS-1B-A1w"/>
+                            <constraint firstAttribute="centerX" secondItem="hbG-Gy-Nbm" secondAttribute="centerX" constant="-0.5" id="8k5-bL-9tc"/>
+                            <constraint firstItem="Ek9-qs-KS7" firstAttribute="top" secondItem="Q5E-X5-T0z" secondAttribute="bottom" constant="8" symbolic="YES" id="9cj-30-gfL"/>
+                            <constraint firstItem="Ek9-qs-KS7" firstAttribute="leading" secondItem="hbG-Gy-Nbm" secondAttribute="trailing" constant="69" id="IPP-if-ok8"/>
+                            <constraint firstItem="6wa-7w-Vhm" firstAttribute="leading" secondItem="Aa4-c8-Mzr" secondAttribute="leading" constant="183" id="NFc-Y0-vhe"/>
+                            <constraint firstAttribute="centerX" secondItem="6wa-7w-Vhm" secondAttribute="centerX" id="Qiv-i5-k2K"/>
+                            <constraint firstItem="Ek9-qs-KS7" firstAttribute="centerY" secondItem="hbG-Gy-Nbm" secondAttribute="centerY" id="RmY-pp-6xZ"/>
+                            <constraint firstItem="dUh-LG-z3M" firstAttribute="top" secondItem="6wa-7w-Vhm" secondAttribute="bottom" constant="21" id="YlH-YV-MKJ"/>
+                            <constraint firstItem="Ek9-qs-KS7" firstAttribute="baseline" secondItem="hbG-Gy-Nbm" secondAttribute="baseline" id="Zjz-2E-v8u"/>
+                            <constraint firstItem="dUh-LG-z3M" firstAttribute="leading" secondItem="Aa4-c8-Mzr" secondAttribute="leading" id="ZtR-ww-Bh8"/>
+                            <constraint firstItem="6wa-7w-Vhm" firstAttribute="centerX" secondItem="dUh-LG-z3M" secondAttribute="centerX" id="Ztt-rn-Sap"/>
+                            <constraint firstItem="WKR-C2-hAk" firstAttribute="top" secondItem="dUh-LG-z3M" secondAttribute="bottom" id="e8b-2p-Nof"/>
+                            <constraint firstItem="6wa-7w-Vhm" firstAttribute="centerY" secondItem="Aa4-c8-Mzr" secondAttribute="centerY" constant="-80" id="eKF-Sp-Gnv"/>
+                            <constraint firstItem="Ek9-qs-KS7" firstAttribute="leading" secondItem="hbG-Gy-Nbm" secondAttribute="trailing" constant="40" id="gTp-tC-fhN"/>
+                            <constraint firstItem="hbG-Gy-Nbm" firstAttribute="top" secondItem="Q5E-X5-T0z" secondAttribute="bottom" constant="8" id="jx3-2x-f39"/>
+                            <constraint firstItem="Ek9-qs-KS7" firstAttribute="leading" secondItem="Aa4-c8-Mzr" secondAttribute="leading" constant="280" id="uNP-cA-ffY"/>
+                            <constraint firstItem="Ek9-qs-KS7" firstAttribute="leading" secondItem="hbG-Gy-Nbm" secondAttribute="trailing" constant="35" id="uuy-F1-EIx"/>
+                            <constraint firstItem="hbG-Gy-Nbm" firstAttribute="top" secondItem="Q5E-X5-T0z" secondAttribute="bottom" id="yBq-QO-xdv"/>
+                            <constraint firstItem="hbG-Gy-Nbm" firstAttribute="leading" secondItem="Aa4-c8-Mzr" secondAttribute="leadingMargin" constant="129" id="zQA-pO-tCl"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8k5-bL-9tc"/>
+                                <exclude reference="yBq-QO-xdv"/>
+                                <exclude reference="zQA-pO-tCl"/>
+                                <exclude reference="NFc-Y0-vhe"/>
+                                <exclude reference="Ztt-rn-Sap"/>
+                                <exclude reference="0bw-Gg-RQF"/>
+                                <exclude reference="9cj-30-gfL"/>
+                                <exclude reference="IPP-if-ok8"/>
+                                <exclude reference="Zjz-2E-v8u"/>
+                                <exclude reference="uNP-cA-ffY"/>
+                                <exclude reference="uuy-F1-EIx"/>
+                                <exclude reference="YlH-YV-MKJ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="clockHandView" destination="uMg-eV-uAQ" id="sQh-Yr-iJe"/>
+                        <outlet property="datePicker" destination="dUh-LG-z3M" id="P4B-Sl-9Vo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="duV-8r-yv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="336" y="972"/>
+        </scene>
+    </scenes>
+</document>
